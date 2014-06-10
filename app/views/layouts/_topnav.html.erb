@@ -1,0 +1,90 @@
+  <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations">
+            <div id="sidebar-alt">
+                <div class="sidebar-scroll">
+                    <div class="sidebar-content">
+                    </div>
+                </div>
+            </div>
+            <div id="sidebar">
+                <div class="sidebar-scroll">
+                    <div class="sidebar-content">
+                        <div class="sidebar-section sidebar-user clearfix">
+                            <div class="sidebar-user-avatar">
+                                    <img src="img/placeholders/avatars/avatar2.jpg" alt="avatar">
+                                </a>
+                            </div>
+                            <div class="sidebar-user-name"><%= session[:oasusr] %></div>
+                        </div>
+                        <ul class="sidebar-nav">
+                            <li>
+                                <a href="/home" <% if session[:pg] == 0%>class=" active"<% end %> ><i class="gi gi-home sidebar-nav-icon"></i>Home</a>
+                            </li>
+                            <li>
+                                <a href="/calendar" <% if session[:pg] == 1%>class=" active"<% end %>><i class="gi gi-calendar sidebar-nav-icon"></i>Calendar</a>
+                            </li>
+                            <li>
+                                <a href="/messages" <% if session[:pg] == 2%>class=" active"<% end %>><i class="gi gi-envelope sidebar-nav-icon"></i>Messages</a>
+                            </li>
+                              <li>
+                                <a href="/cr" <% if session[:pg] == 4%>class=" active"<% end %>><i class="gi gi-charts sidebar-nav-icon"></i>Course Record</a>
+                            </li>
+                                    <li <% if session[:pg] == 5%>class=" active"<% end %>>
+                                <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator"></i><i class="gi gi-certificate sidebar-nav-icon"></i>Registration</a>
+                                <ul>
+                                    <li>
+                                        <a href="/ar" <% if session[:pg] == 5%>class=" active"<% end %>>Automated Registration</a>
+                                    </li>
+                                </ul>
+                            </li>
+                              <li>
+                                <a href="/payments" <% if session[:pg] == 6%>class=" active"<% end %>><i class="gi gi-usd sidebar-nav-icon"></i>Payments</a>
+                            </li>
+                              <li>
+                                <a href="/status" <% if session[:pg] == 7%>class=" active"<% end %>><i class="gi gi-signal sidebar-nav-icon"></i>Server Status</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="main-container">
+                <header class="navbar navbar-default">
+                    <ul class="nav navbar-nav-custom">
+                        <li>
+                            <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');">
+                                <i class="fa fa-bars fa-fw"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav-custom pull-right">
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                                <b><%= session[:usrdata][1].join %>  <%= session[:usrdata][2].join %>      </b><i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                                <li class="dropdown-header text-center">Account</li>
+                                <li>
+                                    <a href="/logout"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </header>
+                <div id="page-content">
+                <%= yield %>
+                </div>
+                <footer class="clearfix">
+                    <div class="pull-right">
+                    <span id="year-copy"></span> &copy; <a href="about">LulzSky alpha</a>
+                    </div>
+                    <% if session[:troll][0] == "ICCS" %>
+                    <div class="pull-left">
+                    <span id="year-copy"></span><a href="http://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">lulz :D</a>
+                    </div>
+                    <%end%>
+                </footer>
+            </div>
+        </div>
+        <a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
+                </div>
+            </div>
+        </div>

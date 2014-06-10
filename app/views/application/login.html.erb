@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Login - LulzSky</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/metro.css" rel="stylesheet" />
+  <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+  <link href="assets/css/style_responsive.css" rel="stylesheet" />
+  <link href="assets/css/style_default.css" rel="stylesheet" id="style_color" />
+  <link rel="stylesheet" type="text/css" href="assets/uniform/css/uniform.default.css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body class="login">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=216725528359615";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+document.onkeypress = enter;
+function enter(e){
+if (e.which == 13){submitform()}
+}
+function navlogin()
+{
+$('#example').tooltip(options);
+}
+</script>
+<script type="text/javascript">
+function submitform()
+{
+  
+if ((document.forms["loginpage"].oasusr.value.search(/[4,5][0-9][8][0][0-9]{3}\b/)==-1)||(document.forms["loginpage"].oaspwd.value==""))
+{
+if (document.forms["loginpage"].oasusr.value.search(/[4,5][0-9][8][0][0-9]{3}\b/)==-1) //if match failed
+  $("#login-error").show();
+else
+  $("#login-error").hide();
+if (document.forms["loginpage"].oaspwd.value=="") //if match failed
+  $("#pass-error").show();
+  else
+  $("#login-error").hide();
+}
+else
+    document.forms["loginpage"].submit();
+}
+</script>
+
+<div class="navbar navbar-static-top">
+</div>
+  <div align=center>
+<br><FONT COLOR="white"><small>This is a single person, non funded, non affiliated, for fun project<br>This project was done to demonstrate that it could be done without the support from the (*school)<br>
+I feel that the (*school) did not do what's best for all<br>
+(*school) didn't ask students and other programmers out there<br>
+deal was probably done behind closed doors, maybe the lack of an entrepreneurial culture has led to this :(<br>i want to make it very clear, i'm here for whats right for future generations to come, not to bash people,  for people who done things right already, i really want congratulate them for doing a brilliant job<br>
+<br><b>For those who are wondering why the login page is the same as (*clouds)</b><br>
+You can buy (*clouds) theme here for $25: 
+<a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469">here</a><br>
+I did not copy whatsoever, I had this theme for more than a year now<br>
+also : the cat is nyancat</small><br><br><font color=red><big><b>WE MIGHT BE BLOCKED AGAIN</big></b><br>I AM VERY SORRY FOR THIS, THEY DON'T GIVE US A REASON WHY THEY BLOCKED US YET<br>OFFICIALS PLEASE EMAIL US at lulzsky(at)dispostable.com</font><br><br> SOMEONE WITH THE ABILITY TO LOOK AT THE LOGS ON THE REAL SERVER HAS BLOCKED US.<br>THEY HAVE ALSO TRIED TO ATTACK US IN VARIOUS WAYS LEGAL AND ILLEGAL.<br>WE'VE DETECTED DDOS ATTACK COMING FROM COMPUTUERS WITHIN THE (*campus) (202.28.179.13), another campus IP and TOT IP) WITH LOGS<br>THEY HAVE UNBLOCKED US AND RE-DDOS US.<br>DDOS IS ILLEGAL, WE WILL NEVER DO ANYTHING ILLEGAL<br>I HOPE THIS NASTY ACT ISN'T FROM SOMEONE WHO TEACHES PEOPLE<br><br><br>
+</FONT>
+  </div>
+  <div align=center>
+    <img src="assets/img/logo-big.png" width="350"alt="" /> 
+  </div>
+  <div class="content">
+<div class="alert alert-block alert-error" id="login-error" style="display:none;">
+  <h4><font color=#B94A48><b>Invalid Student ID!</b></font></h4>
+  Please enter a valid ID
+</div>
+<div class="alert alert-block alert-error" id="pass-error" style="display:none;">
+  <h4><font color=#B94A48><b>No password detected!</b></font></h4>
+  Please enter a password
+</div>
+<% if session[:authfail] == 1 %>
+<%= raw("<div class=\"alert alert-block alert-error\" id=\"pass-error\"><h4><font color=#B94A48><b>Invalid password!</b></font></h4>Please enter a valid ID / Password</div>")%>
+<% end %>
+<% if session[:authfail] == 2 %>
+<%= raw("<div class=\"alert alert-block alert-error\" id=\"pass-error\"><h4><font color=#B94A48><b>Account is in use!</b></font></h4>Please logout from and try again</div>")%>
+<% end %>
+    <form id="loginpage" class="form-vertical login-form" action="/tos" method="post" >
+    	<input name="fbuid" type="hidden" value="">
+      <h3 class="form-title">Login to LulzSky</h3>
+      <div class="control-group">
+        <div class="controls">
+          <div class="input-icon left">
+            <i class="icon-user"></i>
+            <input name="oasusr"class="m-wrap" type="text" placeholder="Student ID" autofocus="autofocus"/>
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <div class="input-icon left">
+            <i class="icon-lock"></i>
+            <input name="oaspwd" class="m-wrap" type="password" style="" placeholder="Password" />
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+       <a href="javascript: submitform()" name="login-btn" class="btn yellow pull-right" >
+        Login <i class="m-icon-swapright m-icon-white"></i>
+		</a>
+      </div>
+<div class="fb-like" data-href="http://facebook.com/lulzskyproject" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+    </form>
+  </div>
+  <div class="copyright">dev alpha - 0.9.2158.1414<br>2014 &copy; LulzSky<br><br><br><b>Think this is cool? You can do it too Learn to code!</b><br>
+<a href="http://tryruby.org/">tryruby.org</a> 
+<a href="http://code.org/">code.org</a> 
+<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/">MIT6.00SC</a><br><br>
+<b>Wanna buy me some wow? Donate!</b><br>
+<a href="bitcoin:18qFspP5AD1QxGCK2nBk9kUtpWH27pWV8k">Bitcoin</a>
+<a href="litecoin:LfjHafgwipdBq9WVwHEtHv8F3X6EpsmQLt">Litecoin</a>
+<a href="dogecoin:DNx9DYJw1vXsd2oQ94SEUG5JaLDHnpSyyw">Dogecoin</a><br><br>
+</small></div>
+
+</div>
+  <script src="assets/js/jquery-1.8.3.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  
+  <script src="assets/uniform/jquery.uniform.min.js"></script> 
+  <script src="assets/js/jquery.blockui.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+      jQuery(document).ready(function() {     
+        App.initLogin();
+      });
+    </script>
+</body>
+</html>

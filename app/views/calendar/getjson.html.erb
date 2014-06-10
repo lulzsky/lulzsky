@@ -1,0 +1,2 @@
+<%user = User.find_by(oasid: session[:oasusr])%>
+<%= user.schedule.html_safe %>

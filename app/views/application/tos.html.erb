@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Terms of Service - LulzSky</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/metro.css" rel="stylesheet" />
+  <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+  <link href="assets/css/style_responsive.css" rel="stylesheet" />
+  <link href="assets/css/style_default.css" rel="stylesheet" id="style_color" />
+  <link rel="stylesheet" type="text/css" href="assets/uniform/css/uniform.default.css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body class="login">
+<div class="navbar navbar-static-top">
+</div>
+  <div align="center"><br><br><br>
+    <img src="assets/img/logo-big.png"  width="350" alt="" /> 
+  </div>
+  <div class="content">
+    <form id="loginpage" class="form-vertical login-form" action="/auth" method="post" >
+    	<input name="fbuid" type="hidden" value="<?php echo $user?>">
+      <h3 class="form-title" align="center">Terms of Agreement </h3>
+      <div align="center">All of your data including your username, password and personal information will be passed on to the server, some data is collected by the server</div><br>
+      <div align="center">This non-profit site is for educational and experimental purposes only</div><br>
+      <div align="center">The site is not responsible for any legal liabilities and damages. Use at your own risk</div><br>
+      <div align="center">By choosing agree, you have agree to the terms and conditions outlined in this Terms of Agreement with respect to our site</div><br>
+      <div class="control-group">
+        <div class="controls">
+      <div class="form-actions">
+       <a href="\logout" name="dis-btn" class="btn red pull-left" >
+        Disagree <i></i>
+		</a>
+           <a href="/auth" name="login-btn" class="btn green pull-right" >
+        Agree </i>
+    </a>
+      </div>
+    
+    </form>
+  </div>
+  <div class="copyright">ToS revision 1<br>2014 &copy; LulzSky</div>
+</div>
+  <script src="assets/js/jquery-1.8.3.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  
+  <script src="assets/uniform/jquery.uniform.min.js"></script> 
+  <script src="assets/js/jquery.blockui.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+      jQuery(document).ready(function() {     
+        App.initLogin();
+      });
+    </script>
+</body>
+</html>

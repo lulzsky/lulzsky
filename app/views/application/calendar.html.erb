@@ -1,0 +1,38 @@
+     <div id="page-content">
+                    <div class="content-header">
+                        <div class="header-section">
+                            <h1>
+                                <i class="fa fa-calendar"></i>Calendar<br><small>Your current class schedule</small>
+                            </h1>
+                        </div>
+                    </div>
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li>Home</li>
+                        <li><a href="">Calendar</a></li>
+                    </ul>
+                    <div class="block block-alt-noborder full">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="block-section">
+                                    <form>
+                                    </form>
+                                </div>
+                                <div class="block-section">
+                                    <div class="block-section text-center text-muted">
+                                        <small><em><i class="fa"></i>Class list</em></small>
+                                    </div>
+                                    <ul class="calendar-events">
+                                        <% (0..session[:csched].size-1).each do |i| %>
+                                        <li style="background-color: #<%=session[:calcolor][i] %>"><%=session[:cname][i].join %></li>
+                                        <% end %>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <div id="calendar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
